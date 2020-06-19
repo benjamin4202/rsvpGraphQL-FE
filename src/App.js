@@ -1,11 +1,10 @@
 import React from 'react';
+import GuestList from './components/GuestList'
 
 
 function App() {
   return (
-    <div className="App">
-
-    </div>
+    <GuestList />
   );
 }
 
