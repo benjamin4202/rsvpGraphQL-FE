@@ -12,6 +12,9 @@ const Header = () => {
               <li>
                   <Link to="/create">Add Guest</Link>
               </li>
+              <li>
+                  <Link to="/search">Search Guests</Link>
+              </li>
           </ul>
       </div>
   )

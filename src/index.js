@@ -9,7 +9,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { BrowserRouter } from 'react-router-dom'
 
 const httpLink = createHttpLink({
-  uri: 'http://3.19.239.125:4000/'
+  uri: 'http://localhost:4000/'
 })
 
 const client = new ApolloClient({
