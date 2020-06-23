@@ -7,7 +7,8 @@ export const GUESTS_QUERY = gql`
 {
   guests {
     id
-    fullName
+    firstName
+    lastName
     street
     streetTwo
     city

@@ -5,7 +5,7 @@ const Guest = (props) => {
   return (
       <div>
           <div>
-           <h1>{guest.fullName}</h1>
+           <h1>{`${guest.firstName} ${guest.lastName}`}</h1>
            <p>{guest.street}</p>
            <p>{guest.streetTwo}</p>
            <p>{`${guest.city}, ${guest.state} ${guest.zip}`}</p>

@@ -4,10 +4,11 @@ import { Mutation } from 'react-apollo'
 import gql from 'graphql-tag'
 
 const GUEST_MUTATION = gql`
-  mutation GuestMutation($fullName: String!, $street: String!, $streetTwo: String, $city: String!, $state: String!, $zip: String!, $rsvp: Boolean!) {
-      addGuest(fullName: $fullName, street: $street, streetTwo: $streetTwo, city: $city, state: $state, zip: $zip, rsvp: $rsvp) {
+  mutation GuestMutation($firstName: String!, $lastName: String!, $street: String!, $streetTwo: String, $city: String!, $state: String!, $zip: String!, $rsvp: Boolean!) {
+      addGuest(firstName: $firstName, lastName: $lastName, street: $street, streetTwo: $streetTwo, city: $city, state: $state, zip: $zip, rsvp: $rsvp) {
           id
-          fullName
+          firstName
+          lastName
           street
           streetTwo
           city
@@ -18,7 +19,8 @@ const GUEST_MUTATION = gql`
   }
 `
 const CreateGuest = (props) => {
-    const [fullName, setFullName] = useState('')
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
     const [street, setStreet] = useState('')
     const [streetTwo, setStreetTwo] = useState('')
     const [city, setCity] = useState('')
@@ -29,10 +31,16 @@ const CreateGuest = (props) => {
     return (
       <div>
           <input
-            value={fullName}
-            onChange={ e => setFullName(e.target.value)}
+            value={firstName}
+            onChange={ e => setFirstName(e.target.value)}
             type="text"
-            placeholder="Full Name"
+            placeholder="First Name"
+          />
+           <input
+            value={lastName}
+            onChange={ e => setLastName(e.target.value)}
+            type="text"
+            placeholder="Last Name"
           />
            <input
             value={street}
@@ -72,7 +80,7 @@ const CreateGuest = (props) => {
           /> */}
           <Mutation
             mutation={GUEST_MUTATION}
-            variables={{ fullName, street, streetTwo, city, state, zip, rsvp}}
+            variables={{ firstName, lastName, street, streetTwo, city, state, zip, rsvp}}
             onCompleted={() => props.history.push('/')}
             update={(store, { data: { addGuest } }) => {
               const data = store.readQuery({ query: GUESTS_QUERY })
