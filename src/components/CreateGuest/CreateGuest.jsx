@@ -76,7 +76,6 @@ const CreateGuest = (props) => {
             onCompleted={() => props.history.push('/')}
             update={(store, { data: { addGuest } }) => {
               const data = store.readQuery({ query: GUESTS_QUERY })
-              console.log(data)
               data.guests.unshift(addGuest)
               store.writeQuery({
                 query: GUESTS_QUERY,
