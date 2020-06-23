@@ -81,7 +81,7 @@ const CreateGuest = (props) => {
           <Mutation
             mutation={GUEST_MUTATION}
             variables={{ firstName, lastName, street, streetTwo, city, state, zip, rsvp}}
-            onCompleted={() => props.history.push('/')}
+            onCompleted={() => props.history.push('/admin')}
             update={(store, { data: { addGuest } }) => {
               const data = store.readQuery({ query: GUESTS_QUERY })
               data.guests.unshift(addGuest)

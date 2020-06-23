@@ -2,6 +2,7 @@ import React from 'react'
 import Guest from '../Guest'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import DeleteGuest from '../DeleteGuest'
 
 export const GUESTS_QUERY = gql`
 {
@@ -30,14 +31,18 @@ const GuestList = () => {
 
           return (
               <div>
-                  {guestsToRender.map(guest => <Guest key={guest.id} guest={guest} />)}
+                  {guestsToRender.map(guest =>
+                  <div key={guest.id}>
+                    <Guest guest={guest} />
+                    <button>edit</button>
+                    <DeleteGuest id={guest.id} />
+                  </div>
+                  )}
               </div>
           )
         }}
     </Query>
-
   )
-
 }
 
 export default GuestList
